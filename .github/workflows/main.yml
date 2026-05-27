@@ -12,3 +12,11 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+
+      - name: Update HTML (Activity 2)
+        run: |
+          echo "Actor is ${{ github.actor }}"
+
+          if [ "${{ github.actor }}" = "thaolinhvu-sys" ]; then
+            sed -i '/<\/body>/i <p>Updated by Team Leader on '"$(date)"'</p>' index.html
+          fi
