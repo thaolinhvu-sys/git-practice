@@ -20,3 +20,7 @@ jobs:
           if [ "${{ github.actor }}" = "thaolinhvu-sys" ]; then
             sed -i '/<\/body>/i <p>Updated by Team Leader on '"$(date)"'</p>' index.html
           fi
+          
+      - name: Update README (Activity 3)
+        run: |
+          echo "### Updated by ${{ github.actor }} on $(date '+%Y-%m-%d %H:%M:%S') [Commit: $(git rev-parse --short HEAD)]" >> README.md
