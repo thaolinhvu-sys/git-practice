@@ -1,4 +1,4 @@
-name: CI Workflow
+name: CI Workflow - Task Manager
 
 on:
   push:
@@ -11,14 +11,14 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Build Docker image
         run: |
-          docker build -t vowel-frequency-analyzer:latest .
+          docker build -t task-manager:latest .
 
       - name: Run Docker container
         run: |
           docker run --rm \
             -e GITHUB_USER=${{ github.actor }} \
-            vowel-frequency-analyzer:latest
+            task-manager:latest
